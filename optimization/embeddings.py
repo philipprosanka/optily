@@ -9,7 +9,7 @@ from extraction.llm_extractor import IngredientProfile
 _CHROMA_DIR = Path(os.getenv("CHROMA_DIR", Path(__file__).parent.parent / "data" / "chroma"))
 _COLLECTION = "ingredients"
 
-_ef = embedding_functions.SentenceTransformerEmbeddingFunction(model_name="all-MiniLM-L6-v2")
+_ef = embedding_functions.DefaultEmbeddingFunction()  # ONNX-based, no PyTorch needed
 
 
 def _client() -> chromadb.PersistentClient:
