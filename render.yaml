@@ -3,7 +3,7 @@ services:
     name: agnes-supply-chain
     runtime: python
     buildCommand: pip install -r requirements.txt
-    startCommand: python scripts/build_index.py && uvicorn api.main:app --host 0.0.0.0 --port $PORT
+    startCommand: uvicorn api.main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /
     envVars:
       - key: OPENAI_API_KEY
